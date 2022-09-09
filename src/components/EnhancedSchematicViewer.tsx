@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import SchematicViewer from "@mcjeffr/react-schematicwebviewer";
+import SchematicViewer from "../SchematicViewer";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ImageSearchIcon from "@material-ui/icons/ImageSearch";
 import React, { FC, useEffect, useState } from "react";
@@ -90,7 +90,7 @@ const Viewer: FC<ViewerProps> = ({ schematic, onClose }) => {
       ) : (
         <div>
           <SchematicViewer
-            jarUrl="https://cors-proxy.mcjeffr.com/https://launcher.mojang.com/v1/objects/37fd3c903861eeff3bc24b71eed48f828b5269c8/client.jar"
+            corsBypassUrl="https://cors-anywhere-eh.octyl.net/"
             schematic={schematic}
             orbit={false}
             size={600}
