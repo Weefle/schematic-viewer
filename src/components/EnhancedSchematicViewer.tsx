@@ -65,7 +65,7 @@ const Viewer: FC<ViewerProps> = ({ schematic, onClose }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setTimedOut(true);
-    }, 10000);
+    }, 100000);
     return () => clearTimeout(timer);
   }, []);
 
