@@ -78,63 +78,11 @@ const ViewerPage = () => {
     file: File;
   }) => {
     setSchematic(schematic);
-    if (schematic.type === SchematicType.SPONGE) {
+
       const buffer: ArrayBuffer = await schematic.file.arrayBuffer();
       setSchem({ file: schematic.file, base64: arrayBufferToBase64(buffer) });
-      return;
-    }
 
-    const form = new FormData();
-    form.append("file", schematic.file);
-    try {
-      const res = await axios({
-        method: "post",
-        url: "https://schematic-converter.mcjeffr.com",
-        data: form,
-        headers: { "Content-Type": "multipart/form-data" },
-        responseType: "blob",
-      });
 
-      const fileName = getFileNameWithoutExtension(schematic.file.name);
-      const file = new File([res.data], `${fileName}.schem`, {
-        type: res.data.type,
-      });
-      let base64 = await blobToBase64(res.data);
-      base64 = base64.substr(base64.indexOf(",") + 1);
-
-      const schem = {
-        file,
-        base64,
-      };
-      setSchem(schem);
-    } catch (err) {
-      if (err.response.data.type === "application/json") {
-        try {
-          const json = await blobToJson(err.response.data);
-          console.log(json.message);
-          showError(json.message);
-          setSchematic(null);
-          setSchem(null);
-        } catch (err) {
-          showError(
-            err.message
-              ? err.message
-              : "Could not process file: unknown exception occurred."
-          );
-          setSchematic(null);
-          setSchem(null);
-        }
-      } else {
-        showError(
-          err.message
-            ? err.message
-            : "Could not process file: unknown exception occurred."
-        );
-        setSchematic(null);
-        setSchem(null);
-      }
-      console.error(err);
-    }
   };
 
   const handleClose = () => {
@@ -165,24 +113,12 @@ const ViewerPage = () => {
             color="primary"
             startIcon={<DownloadIcon />}
             onClick={async () => {
-              const file = getFileNameWithoutExtension(schematic.file.name);
-              await save(schem.file, `${file}.schem`);
+              await save(schem.file, schematic.file.name);
             }}
           >
             Download as .schem file
           </Button>
         </CardActions>
-      </Card>
-    );
-  } else if (schematic) {
-    card = (
-      <Card className={classes.card}>
-        <CardContent className={classes.cardContent}>
-          <Typography variant="h4">
-            Converting {schematic.type} to .schem...
-          </Typography>
-          <LinearProgress className={classes.progress} />
-        </CardContent>
       </Card>
     );
   } else {

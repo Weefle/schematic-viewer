@@ -1,5 +1,5 @@
 import * as React from "react";
-import { renderSchematic } from "@enginehub/schematicwebviewer";
+import { renderSchematic } from "@weefle/schematicwebviewer"
 import "./styles.scss";
 
 const { useState, useEffect } = React;
