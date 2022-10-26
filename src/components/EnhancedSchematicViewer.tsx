@@ -90,7 +90,7 @@ const Viewer: FC<ViewerProps> = ({ schematic, onClose }) => {
       ) : (
         <div>
           <SchematicViewer
-            corsBypassUrl="https://cors-anywhere-eh.octyl.net/"
+            corsBypassUrl="client.jar"
             schematic={schematic}
             orbit={false}
             size={600}

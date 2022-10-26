@@ -1,9 +1,7 @@
 import { CardActions, CardContent } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import Container from "@material-ui/core/Container";
-import LinearProgress from "@material-ui/core/LinearProgress";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 import React, { useState } from "react";
 import Uploader from "../components/Uploader";
 import SchematicType from "../enums/schematic-type";
@@ -15,10 +13,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 import save from "save-file";
 import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
-import axios from "axios";
 import DownloadIcon from "@material-ui/icons/GetApp";
-import { blobToBase64, blobToJson } from "../utils/blobs";
-import { getFileNameWithoutExtension } from "../utils/files";
 import { arrayBufferToBase64 } from "../utils/buffers";
 
 const useStyles = makeStyles((theme) => ({

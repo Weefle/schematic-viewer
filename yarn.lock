@@ -2268,10 +2268,10 @@
     "@webassemblyjs/wast-parser" "1.9.0"
     "@xtuc/long" "4.2.2"
 
-"@weefle/schematicwebviewer@^4.3.3":
-  version "4.3.3"
-  resolved "https://registry.yarnpkg.com/@weefle/schematicwebviewer/-/schematicwebviewer-4.3.3.tgz#ab4b8a580709c7d41756280f270863baca3fee8f"
-  integrity sha512-dkSfb2XbVfPr7hF/aOulWMUKAzDQ9+mZsDNxyZbNISVDgQ6TlNWti7ydQ6EflJKFc3bVWw+yJpq90FqPit+chw==
+"@weefle/schematicwebviewer@^4.3.5":
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/@weefle/schematicwebviewer/-/schematicwebviewer-4.3.5.tgz#1cc3bb88cbad1541f6ca3c7e104068396e5e71f9"
+  integrity sha512-cViq5WkCoafzPnmbXT9UT2w2uJAa9fgHeeM31+/07tqxJb8XGzl4K8QDhBHkwX6aDemVezFNDnJ3y43iI6f2jw==
   dependencies:
     "@enginehub/schematicjs" "^0.8.0"
     babylonjs "5.18.0"
